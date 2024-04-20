@@ -1,0 +1,59 @@
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My App</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.3/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/17.0.2/umd/react.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/17.0.2/umd/react-dom.production.min.js"></script>
+</head>
+<body ng-app="myapp">
+<!-- angular js -->
+<div ng-controller="HelloController">
+    <h2>Hello {{helloTo.title}}!</h2>
+</div>
+
+<!-- react -->
+<!-- Div for React -->
+<div id="react-root"></div>
+<script>
+    // AngularJS
+    angular.module("myapp", []).controller("HelloController", function($scope) {
+        $scope.helloTo = {};
+        $scope.helloTo.title = "World, AngularJS";
+
+        // react componente example with angular js together
+        const FormularioReact = () => {
+            const handleSubmit = (event) => {
+                $scope.$apply(function() {
+                    $scope.helloTo.title = "Formulary sent!";
+                });
+                alert('Formulary sent!');
+                event.preventDefault();
+            };
+
+            return React.createElement(
+                'form', { onSubmit: handleSubmit },
+                React.createElement('label', null, 'Nome:',
+                    React.createElement('input', { type: 'text', name: 'nome' })
+                ),
+                React.createElement('br'),
+                React.createElement('label', null, 'Email:',
+                    React.createElement('input', { type: 'email', name: 'email' })
+                ),
+                React.createElement('br'),
+                React.createElement('button', { type: 'submit' }, 'Enviar')
+            );
+        };
+
+        ReactDOM.render(
+            React.createElement(FormularioReact),
+            document.getElementById('react-root')
+        );
+    });
+
+
+
+</script>
+</body>
+</html>
