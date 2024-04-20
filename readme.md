@@ -20,8 +20,10 @@
 <p>
     See all <a href="https://www.cvedetails.com/vulnerability-list/vendor_id-18512/Angularjs.html">CVE List</a>.
 </p>
+
+
 <p>
-    BonitaSoft created a open source fork of AngularJS, 
+    <a href="https://github.com/bonitasoft/angular.js">BonitaSoft created a open source fork of AngularJS,</a>   
     so maybe if you have some problems with CVE-S,
     you can probably found in their project the solution.
 </p>
