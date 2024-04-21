@@ -3,9 +3,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My App</title>
+    <!-- angular js deps -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.3/angular.min.js"></script>
+    <!-- react deps -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react/17.0.2/umd/react.production.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/17.0.2/umd/react-dom.production.min.js"></script>
+    <!-- accept jsx sintax -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
 </head>
 <body ng-app="myapp">
@@ -37,7 +40,7 @@
 
         return (
             <form onSubmit={handleSubmit}>
-                <label>Nome: <input type="text" name="nome" /></label><br />
+                <label>Nome: <input type="text" name="nome"  onClick={() => alert("hello")}/></label><br />
                 <label>Email: <input type="email" name="email" /></label><br />
                 <button type="submit">Enviar</button>
             </form>
