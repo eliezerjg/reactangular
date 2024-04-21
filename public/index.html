@@ -14,12 +14,12 @@
 <body ng-app="myapp">
 <!-- angular js -->
 <div id="angular-root" ng-controller="HelloController">
-    <h2>Hello {{helloTo.title}}!</h2>
+    <h2>{{helloTo.title}}!</h2>
 </div>
 <script>
     angular.module("myapp", []).controller("HelloController", function($scope) {
         $scope.helloTo = {};
-        $scope.helloTo.title = "World, AngularJS";
+        $scope.helloTo.title = "Value by AngularJS";
 
     })
 </script>
@@ -30,18 +30,17 @@
 
 <script type="text/babel">
     const ReactForm = () => {
-        const handleSubmit = (event) => {
-            alert('Sent!');
-            window.angular.element(document.getElementById('angular-root')).scope().$apply(function() {
-                window.angular.element(document.getElementById('angular-root')).scope().helloTo.title = "Sent!";
-            });
-            event.preventDefault();
-        };
-
+        const angularJSScope = window.angular.element(document.getElementById('angular-root')).scope();
+        let formData = {nome : "", email : ""};
         return (
-            <form onSubmit={handleSubmit}>
-                <label>Nome: <input type="text" name="nome"  onClick={() => alert("hello")}/></label><br />
-                <label>Email: <input type="email" name="email" /></label><br />
+            <form onSubmit={(event) => {
+                    event.preventDefault();
+                    angularJSScope.$apply(() => {
+                        angularJSScope.helloTo.title = "Modified with ReactJS in Angular Scope! Data: " + JSON.stringify(formData);
+                    })
+            }}>
+                <label>Nome: <input type="text" name="nome"  onChange={(e) => formData["nome"] = e.target.value}/></label><br />
+                <label>Email: <input type="email" name="email" onChange={(e) => formData["email"] = e.target.value}/></label><br />
                 <button type="submit">Submit</button>
             </form>
         );
