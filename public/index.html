@@ -26,10 +26,29 @@
 
 <!-- react -->
 <!-- Div for React -->
-<div id="react-root"></div>
+<div id="react-component"></div>
 
 <script type="text/babel">
-    const ReactForm = () => {
+    const prepareForJspAndGetRandomId = () => {
+        const generateUUID = () => {
+            let uuid = '';
+            const chars = '0123456789abcdef';
+
+            for (let i = 0; i < 32; i++) {
+                const charIndex = Math.floor(Math.random() * 16);
+                uuid += chars[charIndex];
+                if (i === 7 || i === 11 || i === 15 || i === 19) {
+                    uuid += '-';
+                }
+            }
+            return uuid;
+        }
+        const _randomId = generateUUID()
+        document.getElementById("react-component").id = _randomId;
+        return _randomId;
+    }
+
+    const ReactComponent = () => {
         const angularJSScope = window.angular.element(document.getElementById('angular-root')).scope();
         let formData = {};
         return (
@@ -39,16 +58,16 @@
                         angularJSScope.helloTo.title = "Modified with ReactJS in Angular Scope! Data: " + JSON.stringify(formData);
                     })
             }}>
-                <label>Nome: <input type="text" name="nome"  onChange={(e) => formData["nome"] = e.target.value}/></label><br />
-                <label>Email: <input type="email" name="email" onChange={(e) => formData["email"] = e.target.value}/></label><br />
+                <label>Nome: <input type="text" name="nome"  onChange={(e) => formData["nome"] = e.target.value} required={true}/></label><br />
+                <label>Email: <input type="email" name="email" onChange={(e) => formData["email"] = e.target.value} required={true}/></label><br />
                 <button type="submit">Submit</button>
             </form>
         );
     };
 
     ReactDOM.render(
-        <ReactForm />,
-        document.getElementById('react-root')
+        <ReactComponent />,
+        document.getElementById(prepareForJspAndGetRandomId())
     );
 </script>
 </body>
