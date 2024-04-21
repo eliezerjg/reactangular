@@ -52,5 +52,6 @@ Coffee is good and i like it, if i helped you by some way:<br/><br/>
 <li><strong>Issue Fix</strong> - 21/04/2024 - Jsx using babel script (react jsx) - index.html</li>
 <li><strong>Feat</strong> - 21/04/2024 - For JSP Component Modularization - index-ready-for-jsp-only-js.html</li>
 <li><strong>Feat</strong> - 21/04/2024 - For JSP Component Modularization and TypeScript - index-ready-for-jsp-with-ts.html</li>
+<li><strong>Feat</strong> - 21/04/2024 - Added some styling Tailwind CSS </li>
 
 
