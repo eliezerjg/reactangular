@@ -29,11 +29,11 @@
 <div id="react-root"></div>
 
 <script type="text/babel">
-    const FormularioReact = () => {
+    const ReactForm = () => {
         const handleSubmit = (event) => {
-            alert('Formulário enviado!');
+            alert('Sent!');
             window.angular.element(document.getElementById('angular-root')).scope().$apply(function() {
-                window.angular.element(document.getElementById('angular-root')).scope().helloTo.title = "Formulário enviado!";
+                window.angular.element(document.getElementById('angular-root')).scope().helloTo.title = "Sent!";
             });
             event.preventDefault();
         };
@@ -42,13 +42,13 @@
             <form onSubmit={handleSubmit}>
                 <label>Nome: <input type="text" name="nome"  onClick={() => alert("hello")}/></label><br />
                 <label>Email: <input type="email" name="email" /></label><br />
-                <button type="submit">Enviar</button>
+                <button type="submit">Submit</button>
             </form>
         );
     };
 
     ReactDOM.render(
-        <FormularioReact />,
+        <ReactForm />,
         document.getElementById('react-root')
     );
 </script>
