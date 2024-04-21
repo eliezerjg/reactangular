@@ -5,11 +5,16 @@
     <title>My App</title>
     <!-- angular js deps -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.3/angular.min.js"></script>
-    <!-- react deps -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/17.0.2/umd/react.production.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/17.0.2/umd/react-dom.production.min.js"></script>
-    <!-- accept jsx sintax -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+
+    <!-- this has to be in your index.html or in the module of components by some way -->
+        <!-- react deps -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/react/17.0.2/umd/react.production.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/17.0.2/umd/react-dom.production.min.js"></script>
+        <!-- accept jsx sintax -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+    <!-- this has to be in your index.html or in the module of components by some way -->
+
+
 </head>
 <body ng-app="myapp">
 <!-- angular js -->
@@ -20,15 +25,14 @@
     angular.module("myapp", []).controller("HelloController", ($scope) => {
         $scope.helloTo = {};
         $scope.helloTo.title = "Value by AngularJS";
-
     })
 </script>
 
+
+<!-- ready for JSP include -->
 <!-- react -->
 <!-- Div for React -->
 <div id="react-component"></div>
-
-<!-- ready for modularization in angular js using JSP include -->
 <script type="text/babel">
     const prepareForJspAndGetRandomId = () => {
         const generateUUID = () => {
@@ -50,6 +54,7 @@
     }
 
     const ReactComponent = () => {
+        // this is not automatic you have to know the right scope to use in each page
         const angularJSScope = window.angular.element(document.getElementById('angular-root')).scope();
         let formData = {};
         return (

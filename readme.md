@@ -35,5 +35,6 @@
 <li>Release - 20/04/2024 - All in index.html working together without bundle.js</li>
 <li>Issue - 20/04/2024 - Jsx sintax isnt working maybe needs Babel</li>
 <li>Issue Fix - 21/04/2024 - Jsx using babel script (react jsx) - index.html</li>
+<li>Feat - 21/04/2024 - For JSP Component Modularization - index-ready-for-jsp.html</li>
 
 
