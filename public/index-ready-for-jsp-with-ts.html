@@ -10,11 +10,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/17.0.2/umd/react-dom.production.min.js"></script>
     <!-- accept jsx sintax -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+    <!-- some styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body ng-app="myapp">
 <!-- angular js -->
 <div id="angular-root" ng-controller="HelloController">
-    <h2>{{helloTo.title}}!</h2>
+    <h2 class="container mx-auto mt-12 text-3xl">{{helloTo.title}}!</h2>
 </div>
 <script>
     angular.module("myapp", []).controller("HelloController", ($scope) => {
@@ -31,7 +33,10 @@
 
 <!-- react -->
 <!-- Div for React -->
-<div id="react-component"></div>
+<div class="container mx-auto mt-12">
+    <div id="react-component"></div>
+</div>
+
 
 <!-- ready for modularization in angular js using JSP include -->
 <script type="text/babel">
@@ -77,12 +82,17 @@
 
         // Render form
         return (
-            <form onSubmit={handleSubmit}>
-                <label>Nome: </label>
-                <input type="text" name="nome" onChange={(e) => formData.nome = e.target.value} required defaultValue={props.nome} /> <br /><br />
-                <label>Email: </label>
-                <input type="email" name="email" onChange={(e) => formData.email = e.target.value} required defaultValue={props.email} /> <br /><br />
-                <button type="submit">Submit</button>
+            <form onSubmit={(event) => {
+                event.preventDefault();
+                angularJSScope.$apply(() => {
+                    angularJSScope.helloTo.title = "Modified with ReactJS in Angular Scope! Data: " + JSON.stringify(formData);
+                })
+            }}>
+                <label className="block mb-2">Nome: </label>
+                <input className="border border-gray-300 rounded-md px-3 py-2 mb-3 w-full" type="text" name="nome" onChange={(e) => formData["nome"] = e.target.value} required={true} defaultValue={props.nome}/> <br/><br/>
+                <label className="block mb-2">Email: </label>
+                <input className="border border-gray-300 rounded-md px-3 py-2 mb-3 w-full" type="email" name="email" onChange={(e) => formData["email"] = e.target.value} required={true} defaultValue={props.email}/> <br/><br/>
+                <button className="bg-blue-500 text-white px-4 py-2 rounded-md" type="submit">Submit</button>
             </form>
         );
     };

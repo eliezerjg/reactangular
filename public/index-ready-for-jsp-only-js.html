@@ -14,12 +14,14 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
     <!-- this has to be in your index.html or in the module of components by some way -->
 
+    <!-- some styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
 
 </head>
 <body ng-app="myapp">
 <!-- angular js -->
 <div id="angular-root" ng-controller="HelloController">
-    <h2>{{helloTo.title}}!</h2>
+    <h2 class="container mx-auto mt-12 text-3xl">{{helloTo.title}}!</h2>
 </div>
 <script>
     angular.module("myapp", []).controller("HelloController", ($scope) => {
@@ -36,7 +38,10 @@
 <!-- ready for JSP include -->
 <!-- react -->
 <!-- Div for React -->
-<div id="react-component"></div>
+<div class="container mx-auto mt-12">
+    <div id="react-component"></div>
+</div>
+
 <script type="text/babel">
     const prepareForJspAndGetRandomId = () => {
         const generateUUID = () => {
@@ -64,16 +69,16 @@
         let formData = props;
         return (
             <form onSubmit={(event) => {
-                    event.preventDefault();
-                    angularJSScope.$apply(() => {
-                        angularJSScope.helloTo.title = "Modified with ReactJS in Angular Scope! Data: " + JSON.stringify(formData);
-                    })
+                event.preventDefault();
+                angularJSScope.$apply(() => {
+                    angularJSScope.helloTo.title = "Modified with ReactJS in Angular Scope! Data: " + JSON.stringify(formData);
+                })
             }}>
-                <label>Nome: </label>
-                <input type="text" name="nome"  onChange={(e) => formData["nome"] = e.target.value} required={true} defaultValue={props.nome}/> <br/><br/>
-                <label>Email: </label>
-                <input type="email" name="email" onChange={(e) => formData["email"] = e.target.value} required={true} defaultValue={props.email}/> <br/><br/>
-                <button type="submit">Submit</button>
+                <label className="block mb-2">Nome: </label>
+                <input className="border border-gray-300 rounded-md px-3 py-2 mb-3 w-full" type="text" name="nome" onChange={(e) => formData["nome"] = e.target.value} required={true} defaultValue={props.nome}/> <br/><br/>
+                <label className="block mb-2">Email: </label>
+                <input className="border border-gray-300 rounded-md px-3 py-2 mb-3 w-full" type="email" name="email" onChange={(e) => formData["email"] = e.target.value} required={true} defaultValue={props.email}/> <br/><br/>
+                <button className="bg-blue-500 text-white px-4 py-2 rounded-md" type="submit">Submit</button>
             </form>
         );
     };
