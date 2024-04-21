@@ -89,9 +89,9 @@
                 })
             }}>
                 <label className="block mb-2">Nome: </label>
-                <input className="border border-gray-300 rounded-md px-3 py-2 mb-3 w-full" type="text" name="nome" onChange={(e) => formData["nome"] = e.target.value} required={true} defaultValue={props.nome}/> <br/><br/>
+                <input className="border border-gray-300 rounded-md px-3 py-2 mb-3 w-full" type="text" name="nome" onChange={(e) => formData["nome"] = e.target.value} required={true} defaultValue={props.nome}/> 
                 <label className="block mb-2">Email: </label>
-                <input className="border border-gray-300 rounded-md px-3 py-2 mb-3 w-full" type="email" name="email" onChange={(e) => formData["email"] = e.target.value} required={true} defaultValue={props.email}/> <br/><br/>
+                <input className="border border-gray-300 rounded-md px-3 py-2 mb-3 w-full" type="email" name="email" onChange={(e) => formData["email"] = e.target.value} required={true} defaultValue={props.email}/>
                 <button className="bg-blue-500 text-white px-4 py-2 rounded-md" type="submit">Submit</button>
             </form>
         );
