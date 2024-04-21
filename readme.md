@@ -2,8 +2,9 @@
 <hr/>
 
 ####  Angular JS - is a powerful legacy project created by Google in 2010
-####  React JS - is a library to make Web Projects 
-####  WebPack  - is actual package module manager
+####  React JS   - is a library to make Web Projects 
+####  WebPack    - is actual package module manager
+####  Babel      - is a Javascript syntax converter
 
 <h1>Problem and Solution</h1>
 <hr/>
