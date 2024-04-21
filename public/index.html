@@ -60,7 +60,7 @@
         const props = angularJSScope.reactComponentProps;
         let formData = props;
 
-        // output will be applied by callback we can call functions in angular js if need
+        // output will be applied by callback we can call functions in angular js if need (by scope reference)
         return (
             <form onSubmit={(event) => {
                 event.preventDefault();
