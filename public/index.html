@@ -13,17 +13,17 @@
 <div id="angular-root" ng-controller="HelloController">
     <h2>Hello {{helloTo.title}}!</h2>
 </div>
-
-<!-- react -->
-<!-- Div for React -->
-<div id="react-root"></div>
 <script>
     angular.module("myapp", []).controller("HelloController", function($scope) {
         $scope.helloTo = {};
         $scope.helloTo.title = "World, AngularJS";
 
-        })
+    })
 </script>
+
+<!-- react -->
+<!-- Div for React -->
+<div id="react-root"></div>
 
 <script type="text/babel">
     const FormularioReact = () => {
