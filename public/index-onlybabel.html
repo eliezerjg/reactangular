@@ -1,37 +1,22 @@
+<!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My App</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.3/angular.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react/17.0.2/umd/react.production.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/17.0.2/umd/react-dom.production.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
 </head>
-<body ng-app="myapp">
-<!-- angular js -->
-<div id="angular-root" ng-controller="HelloController">
-    <h2>Hello {{helloTo.title}}!</h2>
-</div>
-
+<body>
 <!-- react -->
 <!-- Div for React -->
 <div id="react-root"></div>
-<script>
-    angular.module("myapp", []).controller("HelloController", function($scope) {
-        $scope.helloTo = {};
-        $scope.helloTo.title = "World, AngularJS";
-
-        })
-</script>
-
 <script type="text/babel">
+    // react component example with React JSX
     const FormularioReact = () => {
         const handleSubmit = (event) => {
             alert('Formulário enviado!');
-            window.angular.element(document.getElementById('angular-root')).scope().$apply(function() {
-                window.angular.element(document.getElementById('angular-root')).scope().helloTo.title = "Formulário enviado!";
-            });
             event.preventDefault();
         };
 
@@ -44,6 +29,7 @@
         );
     };
 
+    // Renderiza o componente React no DOM
     ReactDOM.render(
         <FormularioReact />,
         document.getElementById('react-root')
