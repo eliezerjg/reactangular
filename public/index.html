@@ -20,6 +20,8 @@
     angular.module("myapp", []).controller("HelloController", ($scope) => {
         $scope.helloTo = {};
         $scope.helloTo.title = "Value by AngularJS";
+
+        // data entries for react
         $scope.reactComponentProps = {
             nome : "default name",
             email : "defaultemail@email.com"
@@ -57,6 +59,8 @@
         const angularJSScope = window.angular.element(document.getElementById('angular-root')).scope();
         const props = angularJSScope.reactComponentProps;
         let formData = props;
+
+        // output will be applied by callback we can call functions in angular js if need
         return (
             <form onSubmit={(event) => {
                 event.preventDefault();
