@@ -25,6 +25,10 @@
     angular.module("myapp", []).controller("HelloController", ($scope) => {
         $scope.helloTo = {};
         $scope.helloTo.title = "Value by AngularJS";
+        $scope.reactComponentProps = {
+            nome : "person",
+            email : "email@test.com"
+        };
     })
 </script>
 
@@ -56,7 +60,8 @@
     const ReactComponent = () => {
         // this is not automatic you have to know the right scope to use in each page
         const angularJSScope = window.angular.element(document.getElementById('angular-root')).scope();
-        let formData = {};
+        const props = angularJSScope.reactComponentProps;
+        let formData = props;
         return (
             <form onSubmit={(event) => {
                     event.preventDefault();
@@ -64,8 +69,10 @@
                         angularJSScope.helloTo.title = "Modified with ReactJS in Angular Scope! Data: " + JSON.stringify(formData);
                     })
             }}>
-                <label>Nome: <input type="text" name="nome"  onChange={(e) => formData["nome"] = e.target.value} required={true}/></label><br />
-                <label>Email: <input type="email" name="email" onChange={(e) => formData["email"] = e.target.value} required={true}/></label><br />
+                <label>Nome: </label>
+                <input type="text" name="nome"  onChange={(e) => formData["nome"] = e.target.value} required={true} defaultValue={props.nome}/> <br/><br/>
+                <label>Email: </label>
+                <input type="email" name="email" onChange={(e) => formData["email"] = e.target.value} required={true} defaultValue={props.email}/> <br/><br/>
                 <button type="submit">Submit</button>
             </form>
         );
